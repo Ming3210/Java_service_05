@@ -1,0 +1,7 @@
+RESTful API hoạt động dựa trên nguyên lý của giao thức HTTP và kiến trúc REST (Representational State Transfer).
+Mỗi tài nguyên (resource) như người dùng, sản phẩm, bài viết... được định danh bằng một URL duy nhất.
+Các thao tác với tài nguyên được thực hiện thông qua các phương thức HTTP chuẩn: GET để lấy dữ liệu,
+POST để tạo mới, PUT để cập nhật và DELETE để xóa. RESTful API không lưu trạng thái (stateless),
+nghĩa là mỗi yêu cầu từ client đến server đều độc lập và phải chứa đầy đủ thông tin cần thiết để xử lý.
+Dữ liệu thường được trao đổi dưới dạng JSON hoặc XML. Nguyên lý hoạt động này giúp RESTful API đơn giản,
+linh hoạt, dễ mở rộng và dễ tích hợp với nhiều nền tảng khác nhau, đặc biệt hiệu quả trong phát triển web và ứng dụng di động hiện đại.

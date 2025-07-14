@@ -1,0 +1,73 @@
+POST - Thêm sản phẩm mới
+URL: POST http://localhost:8080/api/products
+Body (JSON):
+{
+    "name": "iPhone 13",
+    "description": "Apple Smartphone",
+    "price": 999.99
+}
+
+Kết quả mong đợi (Status: 201 Created):
+{
+    "id": 1,
+    "name": "iPhone 13",
+    "description": "Apple Smartphone",
+    "price": 999.99
+}
+
+
+
+
+GET - Lấy danh sách sản phẩm
+URL: GET http://localhost:8080/api/products
+
+Kết quả mong đợi (Status: 200 OK):
+[
+    {
+        "id": 1,
+        "name": "iPhone 13",
+        "description": "Apple Smartphone",
+        "price": 999.99
+    },
+    {
+        "id": 2,
+        "name": "Samsung S21",
+        "description": "Samsung Smartphone",
+        "price": 899.99
+    }
+]
+
+
+
+
+
+
+PUT - Cập nhật sản phẩm
+URL: PUT http://localhost:8080/api/products/1
+Body (JSON):
+{
+    "name": "iPhone 13 Pro",
+    "description": "Apple Smartphone Pro Version",
+    "price": 1299.99
+}
+
+Kết quả mong đợi (Status: 200 OK):
+{
+    "id": 1,
+    "name": "iPhone 13 Pro",
+    "description": "Apple Smartphone Pro Version",
+    "price": 1299.99
+}
+
+
+
+
+
+
+
+DELETE - Xóa sản phẩm
+
+
+URL: DELETE http://localhost:8080/api/products/1
+
+Kết quả mong đợi (Status: 204 No Content)

@@ -1,0 +1,7 @@
+SOAP (Simple Object Access Protocol) và REST (Representational State Transfer) là hai kiểu kiến trúc phổ biến dùng trong dịch vụ web
+, nhưng có nhiều điểm khác biệt. SOAP là một giao thức dựa trên XML, có cấu trúc chặt chẽ, hỗ trợ các tiêu chuẩn bảo mật,
+giao dịch và xác thực, phù hợp với các hệ thống doanh nghiệp yêu cầu độ an toàn và tính toàn vẹn cao. Trong khi đó,
+REST là một phong cách kiến trúc nhẹ hơn, sử dụng các phương thức HTTP như GET, POST, PUT, DELETE và thường trao
+đổi dữ liệu bằng JSON hoặc XML. REST dễ sử dụng, hiệu suất cao và linh hoạt, thích hợp cho các ứng dụng web,
+di động và microservices. Nhìn chung, REST thường được ưa chuộng hơn trong phát triển hiện đại nhờ tính đơn giản và dễ tích hợp,
+trong khi SOAP vẫn được sử dụng trong các hệ thống yêu cầu tính bảo mật và chuẩn hóa cao
