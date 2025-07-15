@@ -1,55 +1,52 @@
 package ra.java_servcie_05.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import ra.java_servcie_05.model.entity.Product;
 import ra.java_servcie_05.service.ProductService;
 
-@Controller
-public class ProductController {
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductRestController {
 
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products")
-    public String getAllProducts(Model model) {
-        model.addAttribute("products", productService.getAllProducts());
-        return "products";
+    // Lấy danh sách tất cả sản phẩm
+    @GetMapping
+    public ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        return ResponseEntity.ok(products);
     }
 
-    @GetMapping("/products/create")
-    public String createProductForm(Model model) {
-        model.addAttribute("product", new Product());
-        return "createProduct";
+    // Tạo mới sản phẩm
+    @PostMapping
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        Product createdProduct = productService.createProduct(product);
+        return ResponseEntity.ok(createdProduct);
     }
 
-    @PostMapping ("/products")
-    public String createProduct(Product product) {
-        productService.createProduct(product);
-        return "redirect:/products";
-    }
-
-    @GetMapping("/products/edit/{id}")
-    public String editProductForm(@PathVariable Long id, Model model) {
+    // Lấy sản phẩm theo ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
-        model.addAttribute("product", product);
-        return "editProduct";
+        return ResponseEntity.ok(product);
     }
 
-    @PostMapping("/products/{id}")
-    public String updateProduct(@PathVariable Long id, Product product) {
-        productService.updateProduct(id, product);
-        return "redirect:/products";
+    // Cập nhật sản phẩm
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
+        Product updatedProduct = productService.updateProduct(id, product);
+        return ResponseEntity.ok(updatedProduct);
     }
 
-    @GetMapping("/products/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
+    // Xóa sản phẩm
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
-        return "redirect:/products";
+        return ResponseEntity.noContent().build();
     }
-
 }
